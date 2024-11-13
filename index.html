@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS (for Collapse) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <aside class="col-md-2 bg-white sidebar p-4 d-flex flex-column" style="height: 100vh;">
+                <h2 class="text-center d-flex align-items-center">
+                    <img src="assets/Clip path group (4).png" alt="Logo" class="me-2" style="width: 25px; height: 25px;">
+                    ByeWind
+                </h2>
+                
+                
+                <!-- Navigation Links -->
+                <nav class="nav flex-column my-4">
+                    <!-- Main Section -->
+                    <div class="links-container mb-3">
+                        <a href="#" class="text-muted" id="favorites" onclick="toggleHighlight('favorites')">Favorites</a>
+                        <a href="#" class="text-dark fw-bold" id="recently" onclick="toggleHighlight('recently')">Recently</a> 
+                    </div>
+                    
+                    <!-- Favorite and Recently lists -->
+                    <ul id="favoritesList" class="favorite-list" style="display: none;">
+                        <li>Overview</li>
+                        <li>Projects</li>
+                    </ul>
+                    
+                    <ul id="recentlyList" class="recently-list" style="display: none;">
+                        <li>Recently 1</li>
+                        <li>Recently 2</li>
+                    </ul>
+                    
+                    
+                    <h5 class="text-muted mb-2">Dashboards</h5>
+                    <a href="#" class="nav-link text-dark d-flex align-items-center">
+                        <i class="bi bi-speedometer2 me-2"></i> Overview
+                    </a>
+                    <a href="#" class="nav-link text-dark d-flex align-items-center">
+                        <i class="bi bi-cart3 me-2"></i> eCommerce
+                    </a>
+                    
+                    <a href="#" class="nav-link text-dark d-flex align-items-center">
+                        <i class="bi bi-diagram-3 me-2"></i> Projects
+                    </a>
+                   
+                    <!-- Pages Section -->
+                    <h5 class="text-muted mt-4 mb-2">Pages</h5>
+
+<!-- User Profile with Nested Campaigns (Collapsible) -->
+<a href="#campaignsMenu" class="nav-link text-dark d-flex align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="campaignsMenu">
+    <i class="bi bi-chevron-right me-2"></i> <!-- Arrow Icon on the left -->
+    <i class="bi bi-person me-2"></i> User Profile
+    
+</a>
+<div id="campaignsMenu" class="collapse ms-4">
+   
+    <a href="#" class="nav-link text-dark">Campaign 1</a>
+    <a href="#" class="nav-link text-dark">Campaign 2</a>
+    <a href="#" class="nav-link text-dark">Campaign 3</a>
+    <a href="#" class="nav-link text-dark">Campaign 4</a>
+    <a href="#" class="nav-link text-dark">Campaign 5</a>
+</div>
+<!-- Account with Icon -->
+<a href="#accountMenu" class="nav-link text-dark d-flex align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="accountMenu">
+    <i class="bi bi-chevron-right me-2"></i> <!-- Arrow Icon on the left -->
+    <i class="bi bi-person-circle me-2"></i> Account
+</a>
+<div id="accountMenu" class="collapse ms-4">
+    <a href="#" class="nav-link text-dark">Account 1</a>
+    <a href="#" class="nav-link text-dark">Account 2</a>
+</div>
+
+<!-- Corporate with Icon -->
+<a href="#corporateMenu" class="nav-link text-dark d-flex align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="corporateMenu">
+    <i class="bi bi-chevron-right me-2"></i> <!-- Arrow Icon on the left -->
+    <i class="bi bi-building me-2"></i> Corporate
+</a>
+<div id="corporateMenu" class="collapse ms-4">
+    <a href="#" class="nav-link text-dark">Corporate 1</a>
+    <a href="#" class="nav-link text-dark">Corporate 2</a>
+</div>
+
+<!-- Blog with Icon -->
+<a href="#blogMenu" class="nav-link text-dark d-flex align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="blogMenu">
+    <i class="bi bi-chevron-right me-2"></i> <!-- Arrow Icon on the left -->
+    <i class="bi bi-pencil-square me-2"></i> Blog
+</a>
+<div id="blogMenu" class="collapse ms-4">
+    <a href="#" class="nav-link text-dark">Blog 1</a>
+    <a href="#" class="nav-link text-dark">Blog 2</a>
+</div>
+
+<!-- Social with Icon -->
+<a href="#socialMenu" class="nav-link text-dark d-flex align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="socialMenu">
+    <i class="bi bi-chevron-right me-2"></i> <!-- Arrow Icon on the left -->
+    <i class="bi bi-facebook me-2"></i> Social
+</a>
+<div id="socialMenu" class="collapse ms-4">
+    <a href="#" class="nav-link text-dark">Social 1</a>
+    <a href="#" class="nav-link text-dark">Social 2</a>
+</div>
+
+                </nav>
+            </aside>
+            
+
+            <!-- Main Content -->
+            <main class="col-md-8 p-4">
+                <header>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                        <div class="d-flex align-items-center">
+                            <!-- Left images -->
+                            <div class="d-flex me-3">
+                                <img src="assets/navbar left/Vector (4).png" alt="Image 1" class="img-fluid me-2" style="width: 15px; height: 15px;">
+                                <img src="assets/navbar left/Vector (5).png" alt="Image 2" class="img-fluid" style="width: 15px; height: 15px;">
+                            </div>
+                
+                            <!-- Dashboard text and separator -->
+                            <span class="text-dark fw-bold me-2">Dashboard</span>
+                            <span>/</span>
+                            <span class="text-muted ms-2">Default</span>
+                
+                            <!-- Right small images -->
+                           
+                        
+                
+                        
+                        </div>
+                        <div class="d-flex align-items-center ms-auto">
+                            <!-- Right small images -->
+                            <form class="d-flex">
+                                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                            </form>
+                            <div class="d-flex me-3">
+                                <img src="assets/navbar right/Vector (6).png" alt="Small Image 1" class="img-fluid me-2" style="width: 15px; height: 15px;">
+                                <img src="assets/navbar right/Vector (7).png" alt="Small Image 2" class="img-fluid me-2" style="width: 15px; height: 15px;">
+                                <img src="assets/navbar right/Vector (8).png" alt="Small Image 3" class="img-fluid me-2" style="width: 15px; height: 15px;">
+                                <img src="assets/navbar right/Vector (9).png" alt="Small Image 4" class="img-fluid" style="width: 15px; height: 15px;">
+                            </div>
+            
+                            <!-- Search bar -->
+                           
+                        </div>
+                
+                    </nav>
+            
+                    <!-- Thin Horizontal Line Below Navbar -->
+                   
+                    <h5 class="mb-4">Overview</h5>
+                    
+                </header>
+                
+                <!-- Overview Stats -->
+                <section class="row text-center mb-4 margin-top-10">
+                    <div class="col-md-3">
+                        
+                            <div class="card1-body">
+                                <h6>Views</h6>
+                                <p class="display-6">7,265<span>+11.01%</span>
+                                    <img src="assets/Vector (10).png" alt="Small Icon" style="width: 15px; height: 10px; margin-left: 0px;"></p>
+                            </div>
+                        
+                    </div>
+                    <div class="col-md-3">
+                        
+                            <div class="card-body">
+                                <h6>Visits</h6>
+                                <p class="display-6">3,671<span>+11.01%</span>
+                                    <img src="assets/Vector (11).png" alt="Small Icon" style="width: 15px; height: 10px; margin-left: 0px;"></p>
+                            </div>
+                       
+                    </div>
+                    <div class="col-md-3">
+                        
+                            <div class="card1-body">
+                                <h6>New Users</h6>
+                                <p class="display-6">156<span>+11.01%</span>
+                                    <img src="assets/Vector (10).png" alt="Small Icon" style="width: 15px; height: 10px; margin-left: 0px;"></p>
+                            </div>
+                       
+                    </div>
+                    <div class="col-md-3">
+                        
+                            <div class="card-body">
+                                <h6>Active Users</h6>
+                                <p class="display-6">2,318<span>+11.01%</span>
+                                    <img src="assets/Vector (10).png" alt="Small Icon" style="width: 15px; height: 10px; margin-left: 0px;"></p>
+                            </div>
+                      
+                    </div>
+                </section>
+
+                <!-- Charts -->
+                <section class="row">
+                    <div class="col-md-8 mb-4">
+                        <div class="chart">
+                            <div class="chart-body">
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="text-dark fw-bold me-3">Total Users</span>
+                                    <span class="text-muted me-3">Total Projects</span>
+                                    <span class="text-muted">Operating Status</span>
+                                    <span class="text-muted mx-3">|</span>
+                                    
+                                    <!-- Bullet for "This Year" -->
+                                    <span class="d-inline-flex align-items-center me-3">
+                                        <span class="bullet" style="background-color: #000; width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 5px;"></span>
+                                        <span class="text-dark">This Year</span>
+                                    </span>
+                                    
+                                    <!-- Bullet for "Last Year" -->
+                                    <span class="d-inline-flex align-items-center">
+                                        <span class="bullet" style="background-color: #a3a4a6; width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 5px;"></span>
+                                        <span class="text-muted">Last Year</span>
+                                    </span>
+                                </div>
+                                
+                                <canvas id="totalUsersChart" class="equal-height-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4">
+                        <div class="chart1">
+                            <div class="chart-body">
+                                <div class="traffic-section">
+                                    <h5 class="chart-title">Traffic by Website</h5>
+                                    <div class="lollipop-chart">
+                                      <div class="lollipop">
+                                        <span class="label">Google</span>
+                                        <span class="dashes" style="--length: 10;">- - - - - - - - - - </span>
+                                      </div>
+                                      <div class="lollipop">
+                                        <span class="label">YouTube</span>
+                                        <span class="dashes" style="--length: 8;">- - - - - - - - </span>
+                                      </div>
+                                      <div class="lollipop">
+                                        <span class="label">Instagram</span>
+                                        <span class="dashes" style="--length: 6;">- - - - - - </span>
+                                      </div>
+                                      <div class="lollipop">
+                                        <span class="label">Pinterest</span>
+                                        <span class="dashes" style="--length: 5;">- - - - - </span>
+                                      </div>
+                                      <div class="lollipop">
+                                        <span class="label">Facebook</span>
+                                        <span class="dashes" style="--length: 4;">- - - - </span>
+                                      </div>
+                                      <div class="lollipop">
+                                        <span class="label">Twitter</span>
+                                        <span class="dashes" style="--length: 3;">- - - </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  
+                                  
+                                <canvas id="trafficByWebsiteChart" class="equal-height-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="chart">
+                            <div class="chart-body">
+                                <h5 class="chart-title">Traffic by Device</h5>
+                                <canvas id="trafficByDeviceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="chart">
+                            <h5 class="chart-title">Traffic by Location</h5> 
+                            <div class="chart-body">
+                                
+                                <canvas id="trafficByLocationChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Notifications and Activity -->
+            <aside class="col-md-2 bg-white sidebar p-4">
+                <div class="right-sidebar">
+                    <h2>Notifications</h2>
+                    <ul class="notifications list-group mb-4">
+                        <li class="list-group-item">
+                            <img src="assets/notifications/Vector.png" alt="Bug Icon" class="rounded-circle notification-icon">
+                            <div class="text-container">
+                                You fixed a bug. <span class="text-muted">Just now</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <img src="assets/notifications/Vector (1).png" alt="User Icon" class="rounded-circle notification-icon">
+                            <div class="text-container">
+                                New user registered. <span class="text-muted">59 minutes ago</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <img src="assets/notifications/Vector (2).png" alt="Bug Icon" class="rounded-circle notification-icon">
+                            <div class="text-container">
+                                You fixed a bug. <span class="text-muted">12 hours ago</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <img src="assets/notifications/Vector (3).png" alt="Subscription Icon" class="rounded-circle notification-icon">
+                            <div class="text-container">
+                                Andi Lane subscribed to you. <span class="text-muted">Today, 11:59 AM</span>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    
+                    <h2>Activities</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <img src="assets/activities/Clip path group.jpg" alt="Style Icon" class="notification-icon">
+                            <div class="text-container">
+                                Changed the style. <span class="text-muted">Just now</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <img src="assets/activities/Clip path group.png" alt="Version Icon" class="notification-icon">
+                            <div class="text-container">
+                                Released a new version. <span class="text-muted">59 minutes ago</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <img src="assets/activities/Clip path group (1).png" alt="Bug Icon" class="notification-icon">
+                            <div class="text-container">
+                                Submitted a bug. <span class="text-muted">12 hours ago</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <img src="assets/activities/Group.png" alt="Modified Icon" class="notification-icon">
+                            <div class="text-container">
+                                Modified data in page X. <span class="text-muted">Today, 11:59 AM</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <img src="assets/activities/Clip path group (2).png" alt="Deleted Icon" class="notification-icon">
+                            <div class="text-container">
+                                Deleted a page in project X. <span class="text-muted">Feb 2, 2024</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <h2>Contacts</h2>
+                    <ul class="contacts list-group">
+                        <li class="list-group-item">
+                            <img src="assets/contactimages/Clip path group (6).png" alt="Natali Craig" class="rounded-circle" style="width: 20px; height: 20px; margin-right: 5px;">
+                            Natali Craig
+                        </li>
+                        <li class="list-group-item">
+                            <img src="assets/contactimages/Clip path group (1).png" alt="Drew Cano" class="rounded-circle" style="width: 20px; height: 20px; margin-right: 5px;">
+                            Drew Cano
+                        </li>
+                        <li class="list-group-item">
+                            <img src="assets/contactimages/Clip path group (2).png" alt="Drew Cano" class="rounded-circle" style="width: 20px; height: 20px; margin-right: 5px;">
+                            Andi Lane
+                        </li>
+                        <li class="list-group-item">
+                            <img src="assets/contactimages/Clip path group (3).png" alt="Drew Cano" class="rounded-circle" style="width: 20px; height: 20px; margin-right: 5px;">
+                            Koray Okumus
+                        </li>
+                        <li class="list-group-item">
+                            <img src="assets/contactimages/Clip path group (4).png" alt="Drew Cano" class="rounded-circle" style="width: 20px; height: 20px; margin-right: 5px;">
+                           Kate Morrison
+                        </li>
+                        <li class="list-group-item">
+                            <img src="assets/contactimages/Clip path group (5).png" alt="Drew Cano" class="rounded-circle" style="width: 20px; height: 20px; margin-right: 5px;">
+                            Melody Macy
+                        </li>
+                        <!-- More contacts can be added here -->
+                    </ul>
+                </div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <!-- JavaScript for Charts -->
+    <script src="scripts.js"></script>
+</body>
+</html>
